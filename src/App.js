@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react";
-import { getStatesForUF } from "./services";
+import { ContainerSelects } from "./components/ContainerSelects";
+import { Header } from "./components/Header";
+import { SelectState } from "./components/SelectState";
+import { GlobalStyles } from './styles/GlobalStyles'
+
 
 function App() {
-  const [states, setStates] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const statesList = await getStatesForUF();
-
-      setStates(statesList);
-    };
-
-    fetchData();
-  }, []);
-
-  const handleSelectChange = (e) => {
-    const stateSelected = e.target.value
-
-    console.log(stateSelected)
-  }
-
   return (
-    <select onChange={handleSelectChange}>
-      <option >Selecione</option>
-      {states.map((state, index) => {
-        return <option key={index}> {state.nome} - {state.sigla}</option>;
-      })}
-    </select>
-  );
+  <>
+    <GlobalStyles/>
+    <Header/>
+    <ContainerSelects/>
+  </>
+  )
 }
 
 export default App;
