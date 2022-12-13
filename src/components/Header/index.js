@@ -1,4 +1,3 @@
-import logo from '../../assets/imgs/logo.jpg'
 import enumerator from '../../assets/imgs/men-enumerator.png'
 import { Container } from './styles'
 

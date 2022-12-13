@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getCountysForUF } from "../../services";
+import { changeCounty } from "../../store/Slice/slice";
 import { Select } from "./styles";
 
 const SelectCounty = () => {
     const [countys, setCountys] = useState([]);
+    const dispatch = useDispatch();
+    const  { stateSelected } = useSelector(state => state.userSelections)
 
     useEffect(() => {
         const fetchData = async () => {
-          const statesList = await getCountysForUF('SP');
+          const statesList = await getCountysForUF(stateSelected);
     
           setCountys(statesList);
         };
     
         fetchData();
-      }, []);
+      }, [stateSelected]);
 
       const handleSelectChange = (e) => {
-        const stateSelected = e.target.value
-    
-        console.log(stateSelected)
+        if (e.target.value === '') return
+
+        dispatch(changeCounty(e.target.value));
       }
 
       return (

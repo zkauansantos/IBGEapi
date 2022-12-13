@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { getStatesForUF } from "../../services";
+import { changeState } from "../../store/Slice/slice";
 import { Select } from "./styles";
 
 
 const SelectState = () => {
     const [states, setStates] = useState([]);
-    const [stateSelected, setStateSelected] = useState();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,14 +20,14 @@ const SelectState = () => {
       }, []);
 
       const handleSelectChange = (e) => {
-        setStateSelected(e.target.value)  
+        dispatch(changeState(e.target.value))
       }
 
       return (
         <Select onChange={handleSelectChange}>
-          <option >Selecione</option>
+          <option>Selecione</option>
           {states.map((state, index) => {
-            return <option key={index}> {state.nome}</option>;
+            return <option key={index} value={state.sigla}> {state.nome}</option>;
           })}
         </Select>
       );

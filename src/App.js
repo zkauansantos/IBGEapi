@@ -1,16 +1,16 @@
+import { Provider } from "react-redux";
 import { ContainerSelects } from "./components/ContainerSelects";
 import { Header } from "./components/Header";
-import { SelectState } from "./components/SelectState";
+import store from "./store";
 import { GlobalStyles } from './styles/GlobalStyles'
-
 
 function App() {
   return (
-  <>
-    <GlobalStyles/>
-    <Header/>
-    <ContainerSelects/>
-  </>
+    <Provider store={store}>
+      <GlobalStyles/>
+      <Header/>
+      <ContainerSelects/>
+    </Provider>
   )
 }
 
