@@ -4,7 +4,7 @@ import { getCountysForUF } from "../../services";
 import { changeCounty } from "../../store/Slice/slice";
 import { Select } from "./styles";
 
-const SelectCounty = () => {
+export const SelectCounty = () => {
     const [countys, setCountys] = useState([]);
     const dispatch = useDispatch();
     const  { stateSelected } = useSelector(state => state.userSelections)
@@ -27,12 +27,10 @@ const SelectCounty = () => {
 
       return (
         <Select onChange={handleSelectChange}>
-          <option >Selecione</option>
+          <option>Selecione</option>
           {countys.map((countys, index) => {
             return <option key={index}> {countys.nome}</option>;
           })}
         </Select>
       );
 }
-
-export {SelectCounty}
