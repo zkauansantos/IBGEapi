@@ -15,4 +15,4 @@ async function getDetailsToCounty(countySelected) {
     return await response.json();
 }
 
-export { getStatesForUF, getCountysForUF}
+export { getStatesForUF, getCountysForUF, getDetailsToCounty}

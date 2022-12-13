@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountysForUF } from "../../services";
+import { getCountysForUF, getDetailsToCounty} from "../../services";
 import { changeCounty } from "../../store/Slice/slice";
 import { Select } from "./styles";
 
@@ -19,15 +19,19 @@ export const SelectCounty = () => {
         fetchData();
       }, [stateSelected]);
 
-      const handleSelectChange = (e) => {
-        if (e.target.value === '') return
+      const handleSelectChange = async (e) => {
+        if (e.target.value === ' ') return
+        const value = e.target.value
+        const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        const valueWithHyphen = valueNoAccent.split(' ').join('-')
 
-        dispatch(changeCounty(e.target.value));
+        const informations = await getDetailsToCounty(valueWithHyphen);
+        dispatch(changeCounty(informations));
       }
 
       return (
         <Select onChange={handleSelectChange}>
-          <option>Selecione</option>
+          <option value=' '>Selecione</option>
           {countys.map((countys, index) => {
             return <option key={index}> {countys.nome}</option>;
           })}
