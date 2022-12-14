@@ -1,32 +1,30 @@
+// const idCounty = countySelected.length > 1 ? countySelected[0].id : countySelected.id;
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { getDetailsToCounty } from "../../services";
+
 
 export const DetailsCounty = () => {
 
-    const [infosCounty, setInfosCounty] = useState([])
-    const { countySelected } = useSelector( state => state.userSelections)
+    const [infosCounty, setInfosCounty] = useState([]);
+    const { countySelected } = useSelector(state => state.userSelections);
+
 
     useEffect(() => {
-        const fetchData = async () => {
-          if(countySelected === "") return
-          const informations = await getDetailsToCounty(countySelected);
+        const informationsIsArray = Array.isArray(countySelected);  
+        setInfosCounty(informationsIsArray ? [...countySelected] : [countySelected]);
 
-          setInfosCounty([informations]);
-        };
-    
-        fetchData();
+
       }, [countySelected]);
 
     return (
         <div>
-            {infosCounty.map((index) => {
-                return (
-                    <div key={index}>
-                        {/* <p>{index.microrregiao.nome}</p> */}
-                    </div>
-                );
-            })}
+            <div>
+                {infosCounty.map((index, position) => (
+                    <p key={position}>
+                        {index['regiao-imediata'].id}
+                    </p>
+                ))}
+            </div>
         </div>
     );
 }

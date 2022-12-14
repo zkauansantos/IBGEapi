@@ -7,7 +7,7 @@ import { Select } from "./styles";
 export const SelectCounty = () => {
     const [countys, setCountys] = useState([]);
     const dispatch = useDispatch();
-    const  { stateSelected } = useSelector(state => state.userSelections)
+    const  { stateSelected } = useSelector(state => state.userSelections);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,10 +20,10 @@ export const SelectCounty = () => {
       }, [stateSelected]);
 
       const handleSelectChange = async (e) => {
-        if (e.target.value === ' ') return
-        const value = e.target.value
-        const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        const valueWithHyphen = valueNoAccent.split(' ').join('-')
+        if (e.target.value === ' ') return;
+        const value = e.target.value;
+        const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        const valueWithHyphen = valueNoAccent.split(' ').join('-');
 
         const informations = await getDetailsToCounty(valueWithHyphen);
         dispatch(changeCounty(informations));
@@ -34,7 +34,7 @@ export const SelectCounty = () => {
           <option value=' '>Selecione</option>
           {countys.map((countys, index) => {
             return <option key={index}> {countys.nome}</option>;
-          })}
+          })};
         </Select>
       );
 }
