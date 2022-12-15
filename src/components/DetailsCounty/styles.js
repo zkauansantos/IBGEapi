@@ -1,19 +1,32 @@
 import styled from "styled-components";
+import mapaBrasil from '../../assets/imgs/mapaBrasil.png'
 
-export const Container = styled.div`
+
+export const Header = styled.header`
+  border-bottom: 1.5px solid #bcbcbc;
   display: flex;
-  align-items: center;
-  min-height: 80vh;
-  justify-content: space-evenly;
-  width: 100%;
-`;
+  margin-bottom: 50px;
 
-export const DivImg = styled.div`
-  width: 35%;
-
-  img {
-    width: 100%;
+  h1 {
+    font-size: 24px;
   }
 `;
 
-export const Content = styled.div``;
+export const Container = styled.div`
+  height: 80vh;
+`;
+
+export const DivImg = styled.div`
+  background: url(${mapaBrasil}) center;
+  border-radius: 50%;
+  width: 479px;
+  height: 453px;
+  float: left;
+  shape-outside: circle(50%);
+`;
+
+export const Content = styled.div`
+`;
+
+export const ContainerDetails = styled.div`
+`;

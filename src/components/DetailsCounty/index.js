@@ -1,8 +1,7 @@
 // const idCounty = countySelected.length > 1 ? countySelected[0].id : countySelected.id;
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Container, DivImg, Content } from "./styles";
-import mapa from "../../assets/imgs/mapa.png";
+import { Container, DivImg, Content, Header, ContainerDetails } from "./styles";
 
 export const DetailsCounty = () => {
   const [infosCounty, setInfosCounty] = useState([]);
@@ -21,26 +20,35 @@ export const DetailsCounty = () => {
     [countySelected]
   );
 
-  console.log(infosCounty);
-
-  // MICRORREGIAO, MESORREGIAO, UF, REGIAO DO MUNICIPIO
   return (
     <>
-      <header>
+      <Header>
         {infosCounty.map((index) => (
           <h1 key={index.id} style={{ marginLeft: "55px", marginTop: 25 }}>
             {index["regiao-imediata"]["regiao-intermediaria"]["UF"].nome}
           </h1>
         ))}
-      </header>
+      </Header>
       <Container>
-        <DivImg>
-          <img src={mapa} alt="mapa" />
-        </DivImg>
-        <Content>
-          {infosCounty.map((index) => (
-            <p key={index.id}></p>
-          ))}
+        <DivImg/>
+        <Content>      
+            {infosCounty.map((index) => { 
+              const defaultPath = index.microrregiao.mesorregiao;
+              const { nome : nameMicroregion } = index.microrregiao;
+              const { nome : nameMesoregion} = defaultPath;
+              const { nome : nameState} = defaultPath['UF'];
+              const { sigla : acronym} = defaultPath['UF'];
+              const { nome : region} = defaultPath['UF'].regiao;
+              
+              return (
+                <ContainerDetails key={index.id}>
+                  <h2>Microrregião : <span>{nameMicroregion}</span></h2>
+                  <strong>Mesorregião: {nameMesoregion}</strong>
+                  <p> Estado : {nameState} - {acronym}</p>
+                  <p> Região : {region}</p>
+                </ContainerDetails>
+              )
+            })}
         </Content>
       </Container>
     </>
