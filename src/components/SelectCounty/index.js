@@ -1,40 +1,44 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountysForUF, getDetailsToCounty} from "../../services";
+import { getCountysForUF, getDetailsToCounty } from "../../services";
 import { changeCounty } from "../../store/Slice/slice";
 import { Select } from "./styles";
 
 export const SelectCounty = () => {
-    const [countys, setCountys] = useState([]);
-    const dispatch = useDispatch();
-    const  { stateSelected } = useSelector(state => state.userSelections);
+  const [countys, setCountys] = useState([]);
+  const dispatch = useDispatch();
+  const { stateSelected } = useSelector((state) => state.userSelections);
 
-    useEffect(() => {
-        const fetchData = async () => {
-          const statesList = await getCountysForUF(stateSelected);
-    
-          setCountys(statesList);
-        };
-    
-        fetchData();
-      }, [stateSelected]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const statesList = await getCountysForUF(stateSelected);
 
-      const handleSelectChange = async (e) => {
-        if (e.target.value === ' ') return;
-        const value = e.target.value;
-        const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        const valueWithHyphen = valueNoAccent.split(' ').join('-');
+      setCountys(statesList);
+    };
 
-        const informations = await getDetailsToCounty(valueWithHyphen);
-        dispatch(changeCounty(informations));
-      }
+    fetchData();
+  }, [stateSelected]);
 
-      return (
-        <Select onChange={handleSelectChange}>
-          <option value=' '>Selecione</option>
-          {countys.map((countys, index) => {
-            return <option key={index}> {countys.nome}</option>;
-          })};
-        </Select>
-      );
-}
+  const handleSelectChange = async (e) => {
+    if (e.target.value === " ") return;
+    const value = e.target.value;
+    const valueNoAccent = value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    const valueWithHyphen = valueNoAccent.split(" ").join("-");
+
+    const informations = await getDetailsToCounty(valueWithHyphen);
+    dispatch(changeCounty(informations));
+    localStorage.setItem("info", JSON.stringify(informations));
+  };
+
+  return (
+    <Select onChange={handleSelectChange}>
+      <option value=" ">Selecione</option>
+      {countys.map((countys, index) => (
+        <option key={index}> {countys.nome}</option>
+      ))}
+      ;
+    </Select>
+  );
+};
