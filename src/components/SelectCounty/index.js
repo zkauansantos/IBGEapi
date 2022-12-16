@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountysForUF, getDetailsToCounty } from "../../services";
 import { changeCounty } from "../../store/Slice/slice";
-import { Select } from "./styles";
+import { Select } from "../Select";
 
 export const SelectCounty = () => {
   const [countys, setCountys] = useState([]);

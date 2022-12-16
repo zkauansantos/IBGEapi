@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <Container>
             <img src={enumerator} alt="logo" width="100"/>
-            <img src={enumerator} alt="logo" width="100"/>
         </Container>
     )
 }

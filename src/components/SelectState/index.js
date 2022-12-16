@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getStatesForUF } from "../../services";
 import { changeState } from "../../store/Slice/slice";
-import { Select } from "./styles";
+import { Select } from "../Select";
 
 
 const SelectState = () => {
@@ -27,7 +27,7 @@ const SelectState = () => {
         <Select onChange={handleSelectChange}>
           <option>Selecione</option>
           {states.map((state, index) => {
-            return <option key={index} value={state.sigla}> {state.nome}</option>;
+            return <option key={index} value={state.sigla}> {state.nome} - {state.sigla}</option>;
           })}
         </Select>
       );

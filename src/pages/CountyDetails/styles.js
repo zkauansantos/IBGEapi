@@ -6,8 +6,15 @@ export const Header = styled.header`
   border-bottom: 1.5px solid #bcbcbc;
   display: flex;
   margin-bottom: 50px;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 16px;
+  
   h1 {
+    text-align: center;
     font-size: 24px;
   }
 `;
