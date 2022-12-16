@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
-import { StyledButton, ContainerButton } from "./styles"
+import { Link } from 'react-router-dom';
+import { StyledButton, ContainerButton } from './styles';
 
-export const Button = () => {
+export function Button() {
     return (
-        <ContainerButton>
-            <Link to="/details">
-                <StyledButton> Mostrar microregiões e macroregiões </StyledButton>
-            </Link>
-        </ContainerButton>
-    )
+      <ContainerButton>
+        <Link to="/details">
+          <StyledButton> Mostrar microregiões e macroregiões </StyledButton>
+        </Link>
+      </ContainerButton>
+    );
 }
