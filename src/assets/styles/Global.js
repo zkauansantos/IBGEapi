@@ -9,7 +9,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: #e9f2f9 ;
+        background: ${({ theme }) => theme.backgroundColor};
+        color: ${({ theme }) => theme.textColor};
     }
 
     button {

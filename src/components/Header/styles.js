@@ -9,4 +9,16 @@ export const Container = styled.header`
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
+    gap: 25px;
+
+    img {
+      width: 100px;
+    }
+
+    button {
+      border-radius: 50%;
+      padding: 5px;
+      border: 1px solid ;
+
+    }
 `;

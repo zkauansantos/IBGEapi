@@ -30,8 +30,8 @@ export function CountyDetails() {
             </h1>
           ))}
         </Header>
+        <DivImg />
         <Container>
-          <DivImg />
           <Content>
             {infosCounty.map((index) => {
                 const defaultPath = index.microrregiao.mesorregiao;
