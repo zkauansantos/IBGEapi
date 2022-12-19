@@ -10,7 +10,9 @@ export function Home() {
 
   return (
     <Container>
-      <h1 style={{ fontSize: 25 }}> Selecione seu estado e município</h1>
+      <div>
+        <h1> Selecione seu estado e município</h1>
+      </div>
       <DivSelects>
         <SelectState />
         <SelectCounty />

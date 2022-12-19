@@ -17,7 +17,7 @@ function Header({ onToggleTheme, selectedTheme }) {
             height={12}
             width={30}
             handleDiameter={20}
-            offColor="#251749"
+            offColor="#523465"
             onColor="#863"
           />
           <span>🌑</span>

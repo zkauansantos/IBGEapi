@@ -9,6 +9,18 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
+
+    h1 {
+        font-size:25px;
+        @media screen and (max-width: 450px) {
+          font-size: 20px;
+        }
+      }
+
+     @media screen and (max-width: 768px) {
+        margin-bottom: 150px;
+      }
 `;
 
 export const DivSelects = styled.div`
@@ -16,4 +28,8 @@ export const DivSelects = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (max-width: 450px) {
+      width: 90%;
+    }
 `;

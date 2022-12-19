@@ -5,7 +5,7 @@ export function Button() {
     return (
       <ContainerButton>
         <Link to="/details">
-          <StyledButton> Mostrar microregiões e macroregiões </StyledButton>
+          <StyledButton> Mostrar microrregiões e macrorregiões </StyledButton>
         </Link>
       </ContainerButton>
     );
