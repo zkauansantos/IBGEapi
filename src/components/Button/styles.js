@@ -11,8 +11,9 @@ padding: 10px;
 width: 80%;
 border-radius: 15px 10px;
 border: none;
-background-color: #27435d;
-color: white;
+background-color: ${({ theme }) => theme.backgroundColor === '#e9f2f9' ? '#27435d' : '#e9f2f9'};
+color:  ${({ theme }) => theme.textColor === '#e9f2f9' ? '#27435d' : '#e9f2f9'};;
+font-weight: bold;
 transition: 0.3s ease-in-out;
 
 &:hover {

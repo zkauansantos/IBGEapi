@@ -1,4 +1,4 @@
 export default {
-  backgroundColor: '#222',
-  textColor: '#fff',
+  backgroundColor: '#27435d',
+  textColor: '#e9f2f9',
 };

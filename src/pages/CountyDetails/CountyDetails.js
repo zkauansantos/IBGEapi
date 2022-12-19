@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
- Container, DivImg, Content, Header, ContainerDetails,
+ Container, DivImg, Header, ContainerDetails,
 } from './styles';
 
 export function CountyDetails() {
@@ -32,7 +32,7 @@ export function CountyDetails() {
         </Header>
         <DivImg />
         <Container>
-          <Content>
+          <div>
             {infosCounty.map((index) => {
                 const defaultPath = index.microrregiao.mesorregiao;
                 const { nome: nameMicroregion } = index.microrregiao;
@@ -50,7 +50,7 @@ export function CountyDetails() {
                   </ContainerDetails>
                 );
               })}
-          </Content>
+          </div>
         </Container>
       </>
     );

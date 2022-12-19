@@ -15,10 +15,9 @@ export const Container = styled.header`
       width: 100px;
     }
 
-    button {
-      border-radius: 50%;
-      padding: 5px;
-      border: 1px solid ;
-
+    div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 `;
