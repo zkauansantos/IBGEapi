@@ -19,4 +19,10 @@ transition: 0.3s ease-in-out;
 &:hover {
     background-color: #7fabd0;
 }
+
+&:disabled {
+  background-color: #ccc;
+  color: gray;
+  cursor: initial;
+}
 `;

@@ -20,7 +20,10 @@ export function SelectCounty() {
   }, [stateSelected]);
 
   const handleSelectChange = async (e) => {
-    if (e.target.value === ' ') return;
+    if (e.target.value === '') {
+      dispatch(changeCounty(''));
+      return;
+    }
     const { value } = e.target;
     const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const valueWithHyphen = valueNoAccent.split(' ').join('-');
@@ -32,7 +35,7 @@ export function SelectCounty() {
 
   return (
     <Select onChange={handleSelectChange}>
-      <option value=" ">Selecione</option>
+      <option value="">Selecione</option>
       {countys.map((county) => (
         <option key={county.id}>{county.nome}</option>
       ))}

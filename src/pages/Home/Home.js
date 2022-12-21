@@ -1,13 +1,9 @@
-import { useSelector } from 'react-redux';
 import { Button } from '../../components/Button';
 import { SelectCounty } from '../../components/SelectCounty';
 import { SelectState } from '../../components/SelectState';
 import { Container, DivSelects } from './styles';
 
 export function Home() {
-  const { stateSelected } = useSelector((state) => state.userSelections);
-  const { countySelected } = useSelector((state) => state.userSelections);
-
   return (
     <Container>
       <div>
@@ -16,7 +12,7 @@ export function Home() {
       <DivSelects>
         <SelectState />
         <SelectCounty />
-        {stateSelected && countySelected ? <Button /> : <> </>}
+        <Button />
       </DivSelects>
     </Container>
   );

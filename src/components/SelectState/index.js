@@ -24,7 +24,7 @@ function SelectState() {
 
       return (
         <Select onChange={handleSelectChange}>
-          <option>Selecione</option>
+          <option value="">Selecione</option>
           {states.map((state) => (
             <option key={state.id} value={state.sigla}>
               {state.nome} - {state.sigla}
