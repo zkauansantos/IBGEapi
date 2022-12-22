@@ -7,7 +7,7 @@ import {
   ContainerDetails,
   ListOfCountyStates,
 } from './styles';
-import { changeState } from '../../store/Slice/slice';
+import { changeCounty, changeState } from '../../store/Slice/slice';
 
 export function CountyDetails() {
     const [infosCounty, setInfosCounty] = useState([]);
@@ -24,7 +24,10 @@ export function CountyDetails() {
             : [countySelectedParsed || countySelected],
         );
 
-        return () => dispatch(changeState(''));
+        return () => {
+          dispatch(changeState(''));
+          dispatch(changeCounty(''));
+        };
       }, // eslint-disable-next-line
       [countySelected]
     );
