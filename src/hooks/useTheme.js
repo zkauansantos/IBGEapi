@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function (key, initialState) {
+export default function useTheme(key, initialState) {
   const [state, setState] = useState(() => {
     const storage = localStorage.getItem(key);
 
