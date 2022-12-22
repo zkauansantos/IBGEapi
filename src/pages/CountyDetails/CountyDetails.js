@@ -20,7 +20,7 @@ export function CountyDetails() {
         const informationsIsArray = Array.isArray(countySelectedParsed);
         setInfosCounty(
           informationsIsArray
-            ? [...(countySelectedParsed || countySelected)]
+            ? [...countySelectedParsed || countySelected]
             : [countySelectedParsed || countySelected],
         );
 
