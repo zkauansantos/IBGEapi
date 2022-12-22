@@ -1,27 +1,31 @@
 import styled from 'styled-components';
-import mapaBrasil from '../../assets/imgs/mapaBrasil.png';
+import brazilMap from '../../assets/imgs/brazilMap.png';
+import brazilFlag from '../../assets/imgs/brazilFlag.jpg';
 
 export const Header = styled.header`
   padding: 0px 15px;
   border-bottom: 1.5px solid ${({ theme }) => theme.textColor};
   display: flex;
   margin-bottom: 16px;
-  align-items: center;
+  flex-direction: column;
   margin-top: 16px;
   width: 100%;
-  justify-content: space-between;
-
-  > h1 {
-    margin-right: 22px;
-  }
+  justify-content: center;
+  gap: 10px;
 
   h1 {
     font-size: 27px;
     text-align: center;
+    letter-spacing: 3px;
+    color: ${({ theme }) => theme.textColor === '#e9f2f9' ? '#FED049' : '#6892DF'};
   }
 
   @media screen and (max-width: 450px) {
     width: 95%;
+
+    h1 {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -35,7 +39,7 @@ export const Container = styled.div`
 `;
 
 export const DivImg = styled.div`
-  background: url(${mapaBrasil}) center;
+  background: url(${brazilMap}) center;
   background-size: cover;
   width: 95%;
   height: 453px;
@@ -50,4 +54,34 @@ export const ContainerDetails = styled.div`
   margin-top: 16px;
   border: 1px solid ${({ theme }) => theme.textColor};
   padding: 16px;
+
+
+  @media screen and (max-width:450px) {
+    h2 {
+     font-size: 18px;
+    }
+
+    strong {
+      font-size: 14px;
+    }
+   }
+`;
+
+export const ListOfCountyStates = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  list-style: square outside url(${brazilFlag});
+  gap: 30px;
+  margin-left: 16px;
+  padding: 6px;
+
+  li span {
+    color: ${({ theme }) => theme.textColor} !important;
+  }
+
+  @media screen and (max-width: 340px ) {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
 `;

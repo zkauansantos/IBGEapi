@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
- Container, DivImg, Header, ContainerDetails,
+  Container,
+  DivImg,
+  Header,
+  ContainerDetails,
+  ListOfCountyStates,
 } from './styles';
+import { changeState } from '../../store/Slice/slice';
 
 export function CountyDetails() {
     const [infosCounty, setInfosCounty] = useState([]);
     const { countySelected } = useSelector((state) => state.userSelections);
     const countySelectedParsed = JSON.parse(localStorage.getItem('info'));
+    const dispatch = useDispatch();
 
     useEffect(
       () => {
@@ -17,6 +23,8 @@ export function CountyDetails() {
             ? [...(countySelectedParsed || countySelected)]
             : [countySelectedParsed || countySelected],
         );
+
+        return () => dispatch(changeState(''));
       }, // eslint-disable-next-line
       [countySelected]
     );
@@ -24,13 +32,19 @@ export function CountyDetails() {
     return (
       <>
         <Header>
-          {infosCounty.map((index) => (
-            <h1 key={index.id}>
-              {index['regiao-imediata']['regiao-intermediaria'].UF.nome}
-            </h1>
-          ))}
+          <h1>{infosCounty[0]?.nome}</h1>
         </Header>
+
+        <ListOfCountyStates>
+          {infosCounty.map((index) => (
+            <li key={index.id}>
+              <p>{index['regiao-imediata']['regiao-intermediaria'].UF.nome}</p>
+            </li>
+          ))}
+        </ListOfCountyStates>
+
         <DivImg />
+
         <Container>
           <div>
             {infosCounty.map((index) => {
@@ -44,9 +58,9 @@ export function CountyDetails() {
                 return (
                   <ContainerDetails key={index.id}>
                     <h2>Microrregião : <span>{nameMicroregion}</span></h2>
-                    <strong>Mesorregião: {nameMesoregion}</strong>
-                    <p> Estado : {nameState} - {acronym}</p>
-                    <p> Região : {region}</p>
+                    <strong>Mesorregião : <span>{nameMesoregion}</span></strong>
+                    <p> Estado : <span>{nameState} - {acronym}</span></p>
+                    <p> Região : <span>{region}</span></p>
                   </ContainerDetails>
                 );
               })}

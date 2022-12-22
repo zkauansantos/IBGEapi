@@ -6,8 +6,8 @@ import { Select } from '../Select';
 
 export function SelectCounty() {
   const [countys, setCountys] = useState([]);
-  const dispatch = useDispatch();
   const { stateSelected } = useSelector((state) => state.userSelections);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {

@@ -16,4 +16,14 @@ export const GlobalStyles = createGlobalStyle`
     button {
         cursor: pointer;
     }
+
+    span {
+      color: ${({ theme }) => theme.textColor === '#e9f2f9' ? '#FED049' : '#5F8D4E'};
+    };
+
+  p {
+    @media screen and (max-width:450px) {
+    font-size: 14px;
+   }
+  }
 `;

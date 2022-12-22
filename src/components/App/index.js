@@ -29,7 +29,6 @@ function App() {
           <AppRoutes />
         </Container>
       </ThemeProvider>
-
     </Provider>
   );
 }
