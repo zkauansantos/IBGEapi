@@ -1,37 +1,38 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getStatesForUF } from '../../services';
-import { changeState } from '../../store/Slice/slice';
+import { changeCounty, changeState } from '../../store/Slice/slice';
 import { Select } from '../Select';
 
 function SelectState() {
-    const [states, setStates] = useState([]);
-    const dispatch = useDispatch();
+  const [states, setStates] = useState([]);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        const fetchData = async () => {
-          const statesList = await getStatesForUF();
+  useEffect(() => {
+      async function fetchData() {
+        const statesList = await getStatesForUF();
+        setStates(statesList);
+      }
 
-          setStates(statesList);
-        };
+      fetchData();
+  }, []);
 
-        fetchData();
-      }, []);
+  function handleSelectChange(event) {
+    if (event.target.value === '') dispatch(changeCounty(''));
 
-      const handleSelectChange = (e) => {
-        dispatch(changeState(e.target.value));
-      };
+    dispatch(changeState(event.target.value));
+  }
 
-      return (
-        <Select onChange={handleSelectChange}>
-          <option value="">Selecione</option>
-          {states.map((state) => (
-            <option key={state.id} value={state.sigla}>
-              {state.nome} - {state.sigla}
-            </option>
-))}
-        </Select>
-      );
+  return (
+    <Select onChange={handleSelectChange}>
+      <option value="">Selecione</option>
+      {states.map((state) => (
+        <option key={state.id} value={state.sigla}>
+          {state.nome} - {state.sigla}
+        </option>
+        ))}
+    </Select>
+  );
 }
 
 export { SelectState };

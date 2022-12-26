@@ -2,6 +2,29 @@ import styled from 'styled-components';
 import brazilMap from '../../assets/imgs/brazilMap.png';
 import brazilFlag from '../../assets/imgs/brazilFlag.jpg';
 
+export const BackToHome = styled.div`
+  position: absolute;
+  left: 0px;
+  top: 40px;
+
+  a {
+    text-decoration:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${({ theme }) => theme.textColor === '#e9f2f9' ? '#FED049' : '#6892DF'};
+
+    ::after{
+      content: 'Voltar';
+      margin-left: 3px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    left: 15px;
+  }
+`;
+
 export const Header = styled.header`
   padding: 0px 15px;
   border-bottom: 1.5px solid ${({ theme }) => theme.textColor};
@@ -75,10 +98,6 @@ export const ListOfCountyStates = styled.ul`
   gap: 30px;
   margin-left: 16px;
   padding: 6px;
-
-  li span {
-    color: ${({ theme }) => theme.textColor} !important;
-  }
 
   @media screen and (max-width: 340px ) {
     flex-wrap: wrap;

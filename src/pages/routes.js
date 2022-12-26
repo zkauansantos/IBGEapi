@@ -4,12 +4,12 @@ import { CountyDetails } from './CountyDetails/CountyDetails';
 import { Home } from './Home/Home';
 
 export function AppRoutes() {
-    return (
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/details" element={<CountyDetails />} />
-        </Routes>
-      </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/details" element={<CountyDetails />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }

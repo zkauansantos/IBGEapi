@@ -19,19 +19,19 @@ export function SelectCounty() {
     fetchData();
   }, [stateSelected]);
 
-  const handleSelectChange = async (e) => {
-    if (e.target.value === '') {
+  async function handleSelectChange(event) {
+    if (event.target.value === '') {
       dispatch(changeCounty(''));
       return;
     }
-    const { value } = e.target;
+    const { value } = event.target;
     const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const valueWithHyphen = valueNoAccent.split(' ').join('-');
     const informations = await getDetailsToCounty(valueWithHyphen);
 
     dispatch(changeCounty(informations));
     localStorage.setItem('info', JSON.stringify(informations));
-  };
+  }
 
   return (
     <Select onChange={handleSelectChange}>

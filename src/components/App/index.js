@@ -9,7 +9,7 @@ import { Container } from './styles';
 import themes from '../../assets/styles/themes';
 import useTheme from '../../hooks/useTheme';
 
-function App() {
+export function App() {
   const [theme, setTheme] = useTheme('theme', 'light');
   const currentTheme = useMemo(() => themes[theme] || themes.light, [theme]);
 
@@ -32,5 +32,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;

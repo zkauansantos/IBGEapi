@@ -7,13 +7,13 @@ export function Button() {
   const { countySelected } = useSelector((state) => state.userSelections);
   const isSelectsValids = (stateSelected && countySelected);
 
-    return (
-      <ContainerButton>
-        <Link to="/details">
-          <StyledButton disabled={!isSelectsValids}>
-            Mostrar microrregiões e macrorregiões
-          </StyledButton>
-        </Link>
-      </ContainerButton>
-    );
+  return (
+    <ContainerButton>
+      <Link to="/details">
+        <StyledButton disabled={!isSelectsValids}>
+          Mostrar microrregiões e macrorregiões
+        </StyledButton>
+      </Link>
+    </ContainerButton>
+  );
 }

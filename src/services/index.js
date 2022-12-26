@@ -1,18 +1,18 @@
 const urlPattern = 'https://servicodados.ibge.gov.br/api/v1/localidades';
 
 async function getStatesForUF() {
-    const response = await fetch(`${urlPattern}/estados`);
-    return await response.json();
+  const response = await fetch(`${urlPattern}/estados`);
+  return await response.json();
 }
 
 async function getCountysForUF(state) {
-    const response = await fetch(`${urlPattern}/estados/${state}/municipios`);
-    return await response.json();
+  const response = await fetch(`${urlPattern}/estados/${state}/municipios`);
+  return await response.json();
 }
 
 async function getDetailsToCounty(countySelected) {
-    const response = await fetch(`${urlPattern}/municipios/${countySelected}`);
-    return await response.json();
+  const response = await fetch(`${urlPattern}/municipios/${countySelected}`);
+  return await response.json();
 }
 
 export { getStatesForUF, getCountysForUF, getDetailsToCounty };

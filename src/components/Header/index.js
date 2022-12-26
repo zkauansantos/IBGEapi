@@ -3,7 +3,7 @@ import Switch from 'react-switch';
 import enumerator from '../../assets/imgs/men-enumerator.png';
 import { Container } from './styles';
 
-function Header({ onToggleTheme, selectedTheme }) {
+export function Header({ onToggleTheme, selectedTheme }) {
     return (
       <Container>
         <img src={enumerator} alt="logo" />
@@ -25,8 +25,6 @@ function Header({ onToggleTheme, selectedTheme }) {
       </Container>
     );
 }
-
-export { Header };
 
 Header.propTypes = {
   onToggleTheme: PropTypes.func.isRequired,
