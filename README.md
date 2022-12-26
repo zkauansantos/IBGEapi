@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# IBGE Infos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto é um teste técnico para a IPAM - Instituto de Pesquisa Ambiental da Amazônia, no qual o propósito era consumir a API de localidades do IBGE
 
-## Available Scripts
+## Link de Acesso
 
-In the project directory, you can run:
+📍<a href="https://ibg-eapi.vercel.app/">IBGE Infos</a>
 
-### `yarn start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- IBGE API - https://servicodados.ibge.gov.br/api/docs/localidades
+- ReactJS
+- JavaScript
+- StyledComponents
+- Redux
+- CSS
+- PropTypes
+- React Router DOM
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requisitos Técnicos
 
-### `yarn test`
+- Criar um select para selecionar um estado.
+- Criar um select para selecionar um município.
+- Ao selecionar um município mostrar as informações de microrregião, mesorregião, UF e região do município.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Requisito Obrigatório
 
-### `yarn build`
+- Usar os três conceitos centrais do redux: store, reducers e actions
+## Layout
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Desktop
+<img src="./src/assets/imgs/layout/Desktop.gif">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-Mobile
+<img src="./src/assets/imgs/layout/Mobile.gif">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Como rodar o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ git clone https://github.com/zkauansantos/IBGEapi.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+$ cd IBGEapi
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+$ yarn or npm install
+```
+```
+$ yarn start or npm start
+```
 
-## Learn More
+## Desafios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Bom aqui pude usar o redux em um projeto pela primeira vez, por mais que eu já conhecia nunca tinha usado em um projeto, e ainda pude me atualizar pois conhecia a versão anterior e aqui pude usar o redux/toolkit conhecendo o slice, esse foi o maior desafio do projeto que foi gerenciar esse estado.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Observações finais
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nesse projeto não quis utilizar a tag form na parte dos selects pois já estou fazendo outro projeto nessa forma trabalhando com um CRUD, mas fica aqui a observação, preferi trabalhar pegando o valor do estado global da store do redux e so fazer a outra page consumir após clicar no botão, Agradeço a oportunidade do teste.
