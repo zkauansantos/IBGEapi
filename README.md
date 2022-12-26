@@ -31,7 +31,7 @@ Esse projeto é um teste técnico para a IPAM - Instituto de Pesquisa Ambiental 
 - Desktop
 <img src="./src/assets/imgs/layout/Desktop.gif">
 
--Mobile
+- Mobile
 <img src="./src/assets/imgs/layout/Mobile.gif">
 
 
