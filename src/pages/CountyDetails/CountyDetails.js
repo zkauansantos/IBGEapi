@@ -31,7 +31,7 @@ export function CountyDetails() {
       dispatch(changeState(''));
       dispatch(changeCounty(''));
     };
-  }, [countySelected]);
+  }, []);
 
   return (
     <>
