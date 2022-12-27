@@ -23,15 +23,15 @@ export function CountyDetails() {
 
     setInfosCounty(
       informationsIsArray
-      ? [...countySelectedParsed || countySelected]
-      : [countySelectedParsed || countySelected],
+      ? [...countySelectedParsed]
+      : [countySelectedParsed],
     );
 
     return () => {
       dispatch(changeState(''));
       dispatch(changeCounty(''));
     };
-  }, [countySelected, countySelectedParsed]);
+  }, [countySelected]);
 
   return (
     <>
