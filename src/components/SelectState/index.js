@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getStatesForUF } from '../../services';
+import GetDataAPIService from '../../services/GetDataAPIService';
 import { changeCounty, changeState } from '../../store/Slice/slice';
 import { Select } from '../Select';
 
@@ -10,7 +10,7 @@ function SelectState() {
 
   useEffect(() => {
       async function fetchData() {
-        const statesList = await getStatesForUF();
+        const statesList = await GetDataAPIService.listStates();
         setStates(statesList);
       }
 

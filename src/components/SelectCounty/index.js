@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCountysForUF, getDetailsToCounty } from '../../services';
+import GetDataAPIService from '../../services/GetDataAPIService';
 import { changeCounty } from '../../store/Slice/slice';
 import { Select } from '../Select';
 
@@ -11,7 +11,7 @@ export function SelectCounty() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const statesList = await getCountysForUF(stateSelected);
+      const statesList = await GetDataAPIService.listCountysForUF(stateSelected);
 
       setCountys(statesList);
     };
@@ -27,7 +27,7 @@ export function SelectCounty() {
     const { value } = event.target;
     const valueNoAccent = value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const valueWithHyphen = valueNoAccent.split(' ').join('-');
-    const informations = await getDetailsToCounty(valueWithHyphen);
+    const informations = await GetDataAPIService.listDetailsToCounty(valueWithHyphen);
 
     dispatch(changeCounty(informations));
     localStorage.setItem('info', JSON.stringify(informations));
