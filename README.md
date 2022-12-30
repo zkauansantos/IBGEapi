@@ -59,4 +59,4 @@ Bom aqui pude usar o redux em um projeto pela primeira vez, por mais que eu já 
 
 ## Observações finais
 
-Nesse projeto não quis utilizar a tag form na parte dos selects pois já estou fazendo outro projeto nessa forma trabalhando com um CRUD, inclusive se quiserem dar uma olhada é o repositório frontEndMyContacts. Mas fica aqui a observação, preferi trabalhar pegando o valor do estado global da store do redux e so fazer a outra page consumir após clicar no botão por trás dos panos, Agradeço a oportunidade do teste.
+Nesse projeto não quis utilizar a tag form na parte dos selects pois já estou fazendo outro projeto nessa forma trabalhando com um CRUD, inclusive se quiserem dar uma olhada é o repositório frontEndMyContacts. Mas fica aqui a observação, preferi trabalhar pegando o valor do estado global da store do Redux e so fazer a outra page consumir após clicar no botão por trás dos panos, Agradeço a oportunidade do teste.
