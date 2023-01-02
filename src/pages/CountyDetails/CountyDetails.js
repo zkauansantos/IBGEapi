@@ -19,13 +19,15 @@ export function CountyDetails() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const informationsIsArray = Array.isArray(countySelectedParsed);
+    try {
+      const informationsIsArray = Array.isArray(countySelectedParsed);
 
-    setInfosCounty(
-      informationsIsArray
-      ? [...countySelectedParsed]
-      : [countySelectedParsed],
-    );
+      setInfosCounty(
+        informationsIsArray
+        ? [...countySelectedParsed]
+        : [countySelectedParsed],
+      );
+    } catch {}
 
     return () => {
       dispatch(changeState(''));

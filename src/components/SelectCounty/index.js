@@ -11,9 +11,13 @@ export function SelectCounty() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const statesList = await GetDataAPIService.listCountysForUF(stateSelected);
+      try {
+        const statesList = await GetDataAPIService.listCountysForUF(stateSelected);
 
-      setCountys(statesList);
+        setCountys(statesList);
+      } catch {
+
+      }
     };
 
     fetchData();
