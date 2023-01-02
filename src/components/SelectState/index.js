@@ -10,8 +10,10 @@ function SelectState() {
 
   useEffect(() => {
       async function fetchData() {
-        const statesList = await GetDataAPIService.listStates();
-        setStates(statesList);
+        try {
+          const statesList = await GetDataAPIService.listStates();
+          setStates(statesList);
+        } catch {}
       }
 
       fetchData();
