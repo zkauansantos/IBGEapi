@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GetDataAPIService from '../../services/GetDataAPIService';
 import { changeCounty } from '../../store/Slice/slice';
+import { ContainerSelect } from '../ContainerSelect';
 import { Select } from '../Select';
+import Spinner from '../Spinner';
 
 export function SelectCounty() {
   const [countys, setCountys] = useState([]);
+  const [isLoadingCountys, setIsLoadingCountys] = useState(true);
   const { stateSelected } = useSelector((state) => state.userSelections);
   const dispatch = useDispatch();
 
@@ -15,8 +18,8 @@ export function SelectCounty() {
         const statesList = await GetDataAPIService.listCountysForUF(stateSelected);
 
         setCountys(statesList);
-      } catch {
-
+      } catch {} finally {
+        setIsLoadingCountys(false);
       }
     };
 
@@ -38,12 +41,23 @@ export function SelectCounty() {
   }
 
   return (
-    <Select onChange={handleSelectChange}>
-      <option value="">Selecione</option>
-      {countys.map((county) => (
-        <option key={county.id}>{county.nome}</option>
+    <ContainerSelect>
+      <Select
+        onChange={handleSelectChange}
+        disabled={isLoadingCountys}
+      >
+        <option value="">Selecione</option>
+        {countys.map((county) => (
+          <option key={county.id}>{county.nome}</option>
       ))}
-      ;
-    </Select>
+        ;
+      </Select>
+      {isLoadingCountys && (
+        <div className="loader">
+          <Spinner size="10px" />
+        </div>
+      )}
+    </ContainerSelect>
+
   );
 }
