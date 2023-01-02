@@ -13,7 +13,7 @@ function SelectState() {
         try {
           const statesList = await GetDataAPIService.listStates();
           setStates(statesList);
-        } catch {}
+        } catch { }
       }
 
       fetchData();
